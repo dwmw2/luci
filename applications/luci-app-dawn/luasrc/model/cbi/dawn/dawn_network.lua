@@ -33,7 +33,7 @@ function s.render(self, sid)
 					<div class="td" style="vertical-align: top;">
 						<div class="table" id="ap-<%= mac %>">
 							<div class="tr table-titles">
-								<div class="th">MAC</div>
+								<div class="th">AP</div>
 								<div class="th">Utilization</div>
 								<div class="th">Frequency</div>
 								<div class="th">Stations</div>
@@ -41,7 +41,7 @@ function s.render(self, sid)
 								<div class="th">VHT Sup</div>
 							</div>
 							<div class="tr">
-								<div class="td"><%= mac %></div>
+								<div class="td"><%= mac %><%= (data.hostname ~= "") and " (" .. data.hostname .. " " .. data.iface .. ")" %></div>
 								<div class="td"><%= "%.2f" %(data.channel_utilization / 2.55) %> %</div>
 								<div class="td"><%= "%.3f" %( data.freq / 1000 ) %> GHz (Channel: <%= "%d" %( status.frequency_to_channel(data.freq) ) %>)</div>
 								<div class="td"><%= "%d" %data.num_sta %></div>
